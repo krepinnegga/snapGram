@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { Link, useNavigate, NavLink, useLocation } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import { Loader } from "@/components/shared";
 import { useSignOutAccount } from '../../lib/react-query/queriesAndMutations';
-import { useUserContext, INITIAL_USER } from "@/context/AuthContext";
+import { useUserContext } from "@/context/AuthContext";
 import { sidebarLinks } from "@/constants";
 import { INavLink } from "@/types";
 
