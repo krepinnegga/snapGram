@@ -151,20 +151,20 @@ export const useCreatePost = () => {
     })
   }
 
- 
   export const useGetPosts = () => {
     return useInfiniteQuery({
       queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
       queryFn: getInfinitePosts,
       getNextPageParam: (lastPage) => {
-        if(lastPage && lastPage.documents.length === 0) return null;
-
-        const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id
-
-        return lastId
-      }
+        // Your logic here seems correct
+        if (lastPage && lastPage.documents.length === 0) return undefined;
+        const lastId = lastPage?.documents[lastPage.documents.length - 1]?.$id;
+        return lastId;
+      },
+      initialPageParam: undefined // Add this line to specify the initial page parameter
     });
-  }; 
+  };
+  
 
 
   export const useSearchPosts = (searchTerm: string) => {
