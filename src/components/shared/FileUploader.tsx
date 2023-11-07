@@ -10,7 +10,7 @@ type  FileUploaderProps = {
 const FileUploader = ({ fileChange, mediaUrl } : FileUploaderProps) => {
     
     const [file, setFile] = useState<File[]>([]);
-    const [fileUrl, setFileUrl] = useState('');
+    const [fileUrl, setFileUrl] = useState(mediaUrl);
 
     const onDrop = useCallback(
         (acceptedFiles: FileWithPath[]) => {
@@ -25,6 +25,8 @@ const FileUploader = ({ fileChange, mediaUrl } : FileUploaderProps) => {
             'image/*': ['.png', '.jpg', '.jpeg', '.svg']
         }
     })
+
+    
 
   return (
     <div {...getRootProps()} className='flex flex-center flex-col bg-dark-3 rounded-xl cursor-pointer'>
